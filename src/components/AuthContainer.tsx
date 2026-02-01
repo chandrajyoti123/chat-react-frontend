@@ -2,6 +2,7 @@ import React, { type ReactNode } from 'react';
 import { Box, IconButton } from '@mui/material';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 type AuthContainerProps = {
   children: ReactNode;
@@ -9,6 +10,7 @@ type AuthContainerProps = {
 
 const AuthContainer: React.FC<AuthContainerProps> = ({ children }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   return (
     <Box
       sx={{
@@ -30,20 +32,23 @@ const AuthContainer: React.FC<AuthContainerProps> = ({ children }) => {
           mx: 2,
         }}
       >
-        <IconButton
-          onClick={() => {
-            navigate(-1);
-          }}
-          sx={{
-            mb: 3,
-            color: 'primary.main',
-            '&:hover': {
-              color: 'primary.dark',
-            },
-          }}
-        >
-          <ArrowLeft size={24} />
-        </IconButton>
+        {location.pathname === '/Welcome' ? null :
+          <IconButton
+            onClick={() => {
+              navigate(-1);
+            }}
+            sx={{
+              mb: 3,
+              color: 'primary.main',
+              '&:hover': {
+                color: 'primary.dark',
+              },
+            }}
+          >
+            <ArrowLeft size={24} />
+          </IconButton>
+        }
+
         {children}
       </Box>
     </Box>
