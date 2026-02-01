@@ -1,0 +1,133 @@
+.PhoneInputInput {
+  border: none !important;
+  outline: none !important;
+  background-color: transparent;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles */
+html {
+  font-size: 16px;
+}
+
+.pagepadding {
+  padding: 0 6rem;
+}
+
+/* Extra Large Screens (4K and above) */
+@media (min-width: 2560px) {
+  html {
+    font-size: 22px;
+  }
+
+  .pagepadding {
+    padding: 0 10rem;
+  }
+}
+
+/* Large Desktops (WQHD, 2K) */
+@media (max-width: 2000px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Standard Desktop */
+@media (max-width: 1800px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Small Desktop / Large Laptop */
+@media (max-width: 1400px) {
+  html {
+    font-size: 16px;
+  }
+
+  .pagepadding {
+    padding: 0 6rem;
+  }
+}
+
+/* Laptops & Tablets (Landscape) */
+@media (max-width: 1280px) {
+  html {
+    font-size: 15px;
+  }
+
+  .pagepadding {
+    padding: 0 6rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+
+  .pagepadding {
+    padding: 0 3rem;
+  }
+}
+
+/* Small Tablets */
+@media (max-width: 900px) {
+  html {
+    font-size: 15px;
+  }
+
+  .pagepadding {
+    padding: 0 2rem;
+  }
+}
+
+/* Mobile (Large) */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  .pagepadding {
+    padding: 0 1rem;
+  }
+}
+
+/* Mobile (Medium) */
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+
+  .pagepadding {
+    padding: 0 1rem;
+  }
+}
+
+/* Mobile (Small) */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .pagepadding {
+    padding: 0 1rem;
+  }
+}
+
+/* Extra Small Devices (old phones, watches) */
+@media (max-width: 360px) {
+  html {
+    font-size: 13px;
+  }
+
+  .pagepadding {
+    padding: 0 0.5rem;
+  }
+}
