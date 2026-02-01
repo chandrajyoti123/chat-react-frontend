@@ -76,6 +76,8 @@ const AddGroup: React.FC<CreateGroupProps> = ({}) => {
         onSuccess: () => {
           console.log('group created successfully');
           setSuccess(true);
+          setGroupName("");
+          setSelectedContacts(new Set());
         },
         onError: (error: any) => {
           setError(error?.message);
@@ -403,7 +405,7 @@ const AddGroup: React.FC<CreateGroupProps> = ({}) => {
               },
             }}
           >
-            Contact added successfully!
+            Group created successfully!
           </Alert>
         )}
 

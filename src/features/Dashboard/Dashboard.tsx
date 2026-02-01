@@ -383,7 +383,7 @@ const Dashboard: React.FC<DashboardProps> = ({ theme, onToggleTheme }) => {
                             flexShrink: 0,
                           }}
                         >
-                          {getLastSeen(contact?.lastMessageAt)}
+                      {contact?.lastMessageAt && getLastSeen(contact?.lastMessageAt)}    
                         </Typography>
                       </Box>
                       <Box
@@ -414,7 +414,7 @@ const Dashboard: React.FC<DashboardProps> = ({ theme, onToggleTheme }) => {
                               )}
                             </Box>
                           )}
-                          {`${contact?.lastMessage}`}
+                          {contact?.lastMessage && `${contact?.lastMessage}`}
                         </Typography>
                         {contact.unreadCount! > 0 && (
                           <Box
@@ -515,7 +515,7 @@ const Dashboard: React.FC<DashboardProps> = ({ theme, onToggleTheme }) => {
                             flexShrink: 0,
                           }}
                         >
-                          {getLastSeen(contact?.lastMessageAt)}
+                          {  contact?.lastMessageAt && getLastSeen(contact?.lastMessageAt)}
                         </Typography>
                       </Box>
                       <Box

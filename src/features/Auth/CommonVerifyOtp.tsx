@@ -19,29 +19,6 @@ const CommonVerifyOtp = () => {
   const { phone, type } = location.state as { phone: string; type: 'login' | 'signup' };
   const setTokens = useAuthStore((s) => s.setTokens);
   const setUser = useAuthStore((s) => s.setUser);
-
-  // const handleSubmit = async (values: { otp: string }) => {
-  //     try {
-  //         const dto: VerifyOtpDto = { phone, otp: values.otp, type };
-  //         const response = await verifyOtpMutation.mutateAsync({ data: dto });
-
-  //         if (response.isNewUser) {
-  //             navigate('/SetupProfile', {
-  //                 state: {
-  //                     phone: response.phone,
-  //                     otpToken: response.otpToken,
-  //                 },
-  //             });
-  //         } else {
-  //             setTokens(response.access_token, response.refresh_token);
-  //             setUser(response.user);
-  //             navigate('/');
-  //         }
-  //     } catch (err) {
-  //         console.error('OTP verification failed:', err);
-  //     }
-  // };
-
   const [error, setError] = useState('');
   const handleSubmit = (values: { otp: string }) => {
     const dto: VerifyOtpDto = { phone, otp: values.otp, type };
@@ -62,8 +39,7 @@ const CommonVerifyOtp = () => {
             navigate('/');
           }
         },
-
-        onError: (error: any) => {
+         onError: (error: any) => {
           console.log(error, 'error');
           setError(error?.message);
           console.error('OTP verification failed:', error);
@@ -90,11 +66,11 @@ const CommonVerifyOtp = () => {
           Verify OTP
         </Typography>
         <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-          Enter the 6-digit code sent to
+       Dev mode : enter any 6-digit number to continue
           <br />
-          <Box component="span" sx={{ color: 'primary.main' }}>
+          {/* <Box component="span" sx={{ color: 'primary.main' }}>
             {phone}
-          </Box>
+          </Box> */}
         </Typography>
       </Box>
 
@@ -140,7 +116,7 @@ const CommonVerifyOtp = () => {
                   },
                 }}
               >
-                Resend Code
+                {/* Resend Code */}
               </Button>
             </Box>
 

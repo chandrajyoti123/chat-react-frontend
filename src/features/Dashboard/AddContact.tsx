@@ -93,10 +93,10 @@ const AddContact: React.FC<AddContactProps> = ({}) => {
                   label="Phone Number"
                   component={PhoneInputFormField}
                   isRequired
-                  // onChange={() => {
-                  //   setError('');
-                  //   setSuccess(false);
-                  // }}
+                  onChange={() => {
+                    setError('');
+                    setSuccess(false);
+                  }}
                 />
                 {error && (
                   <Alert

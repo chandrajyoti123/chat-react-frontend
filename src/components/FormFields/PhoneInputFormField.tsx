@@ -10,6 +10,7 @@ interface PhoneInputFormFieldProps {
   form: FormikProps<any>;
   label?: string;
   isRequired?: boolean;
+  onChange?: (value: Value) => void; // 👈 support custom onChange
 }
 
 export const PhoneInputFormField: React.FC<PhoneInputFormFieldProps> = ({
@@ -17,9 +18,19 @@ export const PhoneInputFormField: React.FC<PhoneInputFormFieldProps> = ({
   form,
   label,
   isRequired,
+  onChange,
   ...props
 }) => {
-  const errorText = getIn(form.touched, field.name) && getIn(form.errors, field.name);
+  const errorText =
+    getIn(form.touched, field.name) && getIn(form.errors, field.name);
+
+  const handleChange = (value: Value) => {
+    // 1️⃣ Update Formik
+    form.setFieldValue(field.name, value ?? '');
+
+    // 2️⃣ Call external onChange if provided
+    onChange?.(value);
+  };
 
   return (
     <FormControl fullWidth>
@@ -34,7 +45,6 @@ export const PhoneInputFormField: React.FC<PhoneInputFormFieldProps> = ({
         </Typography>
       )}
 
-      {/* 🔥 MUI Styled Wrapper */}
       <Box
         sx={{
           border: '2px solid',
@@ -42,8 +52,8 @@ export const PhoneInputFormField: React.FC<PhoneInputFormFieldProps> = ({
             errorText
               ? theme.palette.error.main
               : theme.palette.mode === 'light'
-                ? '#E5E7EB'
-                : '#4B5563',
+              ? '#E5E7EB'
+              : '#4B5563',
           borderRadius: 1,
           px: 1.5,
           py: 1.5,
@@ -51,8 +61,6 @@ export const PhoneInputFormField: React.FC<PhoneInputFormFieldProps> = ({
           '&:focus-within': {
             borderColor: 'primary.main',
           },
-
-          /* PhoneInput internal styling */
           '& .PhoneInput': {
             display: 'flex',
             alignItems: 'center',
@@ -69,9 +77,9 @@ export const PhoneInputFormField: React.FC<PhoneInputFormFieldProps> = ({
         <PhoneInput
           international
           defaultCountry="IN"
-          value={field.value}
           countryCallingCodeEditable={false}
-          onChange={(value: Value) => form.setFieldValue(field.name, value ?? '')}
+          value={field.value}
+          onChange={handleChange}   
           onBlur={() => form.setFieldTouched(field.name, true, true)}
           {...props}
         />
