@@ -1,7 +1,7 @@
 import AuthContainer from '@/components/AuthContainer';
 import { Box, Button, Typography } from '@mui/material';
-import { MessageCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import welcomeImage from '@/assets/Light Mode.png';
 
 const WelcomeScreen = () => {
   const navigate = useNavigate();
@@ -9,20 +9,26 @@ const WelcomeScreen = () => {
     <AuthContainer>
       <Box sx={{ textAlign: 'center' }}>
         <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
-          <Box
+          {/* <Box
             sx={{
               background: (theme) => theme.palette.gradient.secondary,
               borderRadius: 4,
               p: 3,
               boxShadow: 4,
             }}
-          >
-            <MessageCircle size={64} color="white" strokeWidth={2.5} />
-          </Box>
+          > */}
+            {/* <MessageCircle size={64} color="white" strokeWidth={2.5} /> */}
+            <Box
+              component="img"
+              src={welcomeImage}
+              alt="Welcome"
+              sx={{ width: 150, height: 'auto', mt: 2 }}
+            />
+          {/* </Box> */}
         </Box>
 
         <Typography variant="h2" sx={{ color: 'text.primary', mb: 1 }}>
-          Welcome to ChatConnect
+          Welcome to Getuno
         </Typography>
         <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4 }}>
           Connect with friends and family seamlessly
